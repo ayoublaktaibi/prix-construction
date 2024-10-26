@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>حساب تكلفة البناء</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+        <script src="script.js" defer></script>    
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>حساب تكلفة البناء</h1>
+            <form id="salaaform">
+                <p>مواد البناء</p>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label>ثمن الإسمنت (35kg) :</label>
+                        <input type="text" id="simma" name="simma" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                    <div class="input-item">
+                        <label>ثمن الحديد للمتر :</label>
+                        <input type="text" id="hdid" name="hdid" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label>ثمن الرمل (شاحنة) :</label>
+                        <input type="text" id="ramla" name="ramla" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                    <div class="input-item">
+                        <label>ثمن الكياس (شاحنة) :</label>
+                        <input type="text" id="kayas" name="kayas" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label>ثمن الحجر (شاحنة) :</label>
+                        <input type="text" id="hjar" name="hjar" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                    <div class="input-item">
+                        <label>ثمن التوفنة (شاحنة) :</label>
+                        <input type="text" id="toufna" name="toufna" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                </div>
+
+                <p>الطبلة</p>
+                <div class="input-group">
+                    <div class="input-item">
+                        <label>الطول :</label>
+                        <input type="text" id="tol" name="tol" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                    <div class="input-item">
+                        <label>العرض :</label>
+                        <input type="text" id="eard" name="eard" pattern="^\d+([,]\d{1,2})?$" title="يجب إدخال رقم !">
+                    </div>
+                </div>
+
+                <label>نوع عمارة الطبلة :</label>
+                <select name="3mara" id="3mara">
+                    <option value="tofna">توفنة</option>
+                    <option value="chabka">شبكة الحديد</option>
+                    <option value="blokaj">بلوكاج</option>
+                </select>
+                
+                <div class="action-row">
+                    <input type="submit" value="احسب">
+                    <div id="result">تكلفة الطبلة : <span id="tabla">0</span> درهم</div>
+                </div>
+            </form>
+
+            <button id="generatePDF">تحميل PDF</button>
+        </div>
+    </body>
+</html>
